@@ -1,0 +1,228 @@
+const allowedNames = ["peter", "bill", "vi", "jenny", "huong"];
+const urlParams = new URLSearchParams(window.location.search);
+const personName = urlParams.get("name");
+function toggleFormAndLabel() {
+  const formInput = document.getElementById("form-input");
+  const saveBtnId = "savenamecard-btn";
+  const label = document.getElementById("vcard_label");
+
+  if (!formInput || !label) return;
+
+  const person = personName?.trim().toLowerCase();
+
+  if (allowedNames.includes(person)) {
+    // Ẩn tất cả trừ nút lưu
+    [...formInput.children].forEach(child => {
+      child.style.display = (child.id === saveBtnId) ? "inline-block" : "none";
+    });
+
+    // Thay đổi tiêu đề
+    label.textContent = " ";
+  } else {
+    // Hiển thị lại toàn bộ nếu tên không hợp lệ
+    [...formInput.children].forEach(child => {
+      child.style.display = "block";
+    });
+
+    // Giữ nguyên tiêu đề
+    label.textContent = "Thông tin cá nhân";
+  }
+}
+
+// Gọi khi trang tải
+window.addEventListener("DOMContentLoaded", toggleFormAndLabel);
+
+const vcfFile = allowedNames.includes(personName) ? `vcf/${personName}.vcf` : "vcf/default.vcf";
+fetch(vcfFile)
+  .then(response => response.text())
+  .then(vcfData => {
+    const data = parseVCF(vcfData);
+	const url = window.location.href;
+    updatePreview(data);
+	updateInput(data);	
+	generateQR(url);
+	UpdateNameCard();
+  })
+  .catch(error => {
+    console.error("Error loading VCF:", error);
+  });
+function parseVCF(vcf) {
+	const lines = vcf.split(/\r?\n/);
+	const data = {
+		name: "",
+		title: "",
+		phone: "",
+		email: "",
+		company: "",
+		tel: "",
+		fax: "",
+		website: "",
+		address: ""
+	};
+	lines.forEach(line => {
+		if (line.startsWith("FN:")) data.name = line.slice(3);
+		if (line.startsWith("TITLE:")) data.title = line.slice(6);
+		if (line.startsWith("EMAIL:")) data.email = line.slice(6);
+		if (line.startsWith("ORG:")) data.company = line.slice(4);
+		if (line.startsWith("TEL;CELL:")) data.phone = line.split(":")[1];
+		if (line.startsWith("TEL;WORK:")) {
+			data.tel += (data.tel ? " / " : "") + line.split(":")[1];
+		}
+		if (line.startsWith("TEL;FAX:")) data.fax = line.split(":")[1];
+		if (line.startsWith("URL:")) data.website = line.slice(4);
+		if (line.startsWith("ADR;WORK:")) {
+			data.address = line.split(":")[1].replace(/;/g, " ");
+    }
+	});
+	return data;
+}
+function updatePreview(data) {
+	document.getElementById("preview-name").textContent = data.name;
+	document.getElementById("preview-title").textContent = data.title;
+	document.getElementById("preview-phone").textContent = "Mobile: " + data.phone;
+	document.getElementById("preview-email").textContent = "Email: " + data.email;
+	document.getElementById("preview-company").textContent = data.company;
+	document.getElementById("preview-tel").textContent = "Tel: " + data.tel;
+	document.getElementById("preview-fax").textContent = "Fax: " + data.fax;
+	document.getElementById("preview-website").textContent = "Website: " + data.website;
+	document.getElementById("preview-address").innerHTML = "Address: " + data.address;
+}
+function updateInput(data) {
+	const rawAddress = data.address;
+	const cleanedAddress = rawAddress
+	.replace(/<br\s*\/?>/gi, "\n")       // Thay <br> bằng \n
+	.replace(/<\/?sup>/gi, "");          // Bỏ <sup> và </sup>
+
+	document.getElementById("name").value = data.name;
+	document.getElementById("title").value = data.title;
+	document.getElementById("phone").value = data.phone;
+	document.getElementById("email").value = data.email;
+	document.getElementById("company").value = data.company;
+	document.getElementById("tel").value = data.tel;
+	document.getElementById("fax").value = data.fax;
+	document.getElementById("address").value =cleanedAddress;
+}
+function generateVCardQR(data) {
+	const vcardData = `
+		BEGIN:VCARD
+		VERSION:3.0
+		FN:${data.name}
+		N:${data.name}
+		TITLE:${data.title}
+		ORG:${data.company}
+		TEL;TYPE=CELL:${data.phone}
+		TEL;TYPE=WORK:${data.tel}
+		TEL;TYPE=FAX:${data.fax}
+		EMAIL;TYPE=INTERNET:${data.email}
+		URL:${data.website}
+		ADR;TYPE=WORK:;;${data.address}
+		END:VCARD`.trim();
+
+  const vcardQR = new QRCodeStyling({
+    width: 200,
+    height: 200,
+    type: "svg",
+    data: vcardData,
+    image: "img\vtl_logo.png",
+    imageOptions: {
+      crossOrigin: "anonymous",
+      margin: 0,
+      imageSize: 0.25,
+      hideBackgroundDots: true
+    },
+    dotsOptions: {
+      color: "#333",
+      type: "square"
+    },
+    backgroundOptions: {
+      color: "#ffffff"
+    },
+    cornersSquareOptions: {
+      type: "extra-rounded"
+    },
+    cornersDotOptions: {
+      type: "dot"
+    }
+  });
+
+  const qrContainer = document.getElementById("qr-vcard");
+  if (qrContainer) {
+    qrContainer.innerHTML = "";
+    vcardQR.append(qrContainer);
+  }
+}
+function generateQR(url) {
+	document.getElementById("qr-website").innerHTML = "";
+	new QRCode(document.getElementById("qr-website"), {
+		text: url,
+		width: 80,
+		height: 80,
+		colorDark: "#333",     // màu dot
+		colorLight: "#ffffff"  // màu nền (có thể đổi nếu muốn)
+	});
+}
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("updatenamecard-btn").addEventListener("click", UpdateNameCard);
+});
+
+function UpdateNameCard(){
+	const rawAddress = document.getElementById("address").value;
+	const cleanedAddress = rawAddress
+	.replace(/\n/g, "<br>")
+	.replace(/\b03Brd\b/g, "03B<sup>rd</sup>");
+	const data = {
+		name: document.getElementById("name").value,
+		title: document.getElementById("title").value,
+		phone: document.getElementById("phone").value,
+		email: document.getElementById("email").value,
+		company: document.getElementById("company").value,
+		tel: document.getElementById("tel").value,
+		fax: document.getElementById("fax").value,
+		website: document.getElementById("website").value,
+		address: cleanedAddress
+	};
+	updatePreview(data);
+	data.address=data.address.replace(/<sup>|<\/sup>|<br\s*\/?>/gi, '');
+	generateVCardQR(data);
+	return data;
+}
+document.getElementById("savenamecard-btn").addEventListener("click", function () {
+	const fullName = document.getElementById("name").value.trim();
+	const title = document.getElementById("title")?.value.trim() || "";
+	const phone = document.getElementById("phone")?.value.trim() || "";
+	const email = document.getElementById("email")?.value.trim() || "";
+	const company = document.getElementById("company")?.value.trim() || "";
+	const tel = document.getElementById("tel")?.value.trim() || "";
+	const fax = document.getElementById("fax")?.value.trim() || "";
+	const website = document.getElementById("website")?.value.trim() || "";
+	const address = document.getElementById("address")?.value.trim() || "";
+	const vcardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${fullName}
+N:${formatName(fullName)}
+TITLE:${title}
+ORG:${company}
+TEL;TYPE=CELL:${phone}
+TEL;TYPE=WORK:${tel}
+TEL;TYPE=FAX:${fax}
+EMAIL:${email}
+URL:${website}
+ADR;TYPE=WORK:;;${address};;;;
+END:VCARD`.trim();
+	const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
+	const link = document.createElement("a");
+	link.href = URL.createObjectURL(blob);
+	link.download = `${fullName.replace(/\s+/g, "_")}.vcf`;
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+});
+
+// Hàm tách tên cho dòng N:
+function formatName(fullName) {
+	const parts = fullName.trim().split(" ");
+	const lastName = parts.slice(0, -1).join(" ");
+	const firstName = parts.slice(-1).join(" ");
+	return `${lastName};${firstName};;;`;
+}

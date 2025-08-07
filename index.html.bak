@@ -1,0 +1,301 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <LINK REL="SHORTCUT ICON" href="img/favicon.ico">
+    <title>C&#244;ng ty TNHH Kỹ Thuật Việt Thắng Lợi</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- META FOR GOOGLE -->
+	<meta name="Name" content="MTL - C&#244;ng ty TNHH Kỹ Thuật Việt Thắng Lợi" />
+    <meta name="Description" content="C&#244;ng Ty TNHH Kỹ Thuật Việt Thắng Lợi tự h&#224;o l&#224; nh&#224; đại l&#253;/ph&#226;n phối ch&#237;nh h&#227;ng được nha sản xuất MTL Instruments uỷ quyền duy nhất tại Việt Nam" />
+    <meta name="Keywords" content="MTL" />
+    <!-- META FOR FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vtltech.com.vn"/>
+    <meta property="og:title" content="MTL - C&#244;ng ty TNHH Kỹ Thuật Việt Thắng Lợi"/>
+    <meta property="og:image" content="img/baotri.jpg"/>
+    <meta property="og:image:alt" content="MTL - C&#244;ng ty TNHH Kỹ Thuật Việt Thắng Lợi"/>
+    <meta property="og:description" content="C&#244;ng Ty TNHH Kỹ Thuật Việt Thắng Lợi tự h&#224;o l&#224; nh&#224; đại l&#253;/ph&#226;n phối ch&#237;nh h&#227;ng được nha sản xuất MTL Instruments uỷ quyền duy nhất tại Việt Nam"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/colorbox.css" />
+	<!--Script-->
+	
+
+</head>
+<body>
+	<div class="body-inner">
+		<div id="top-bar" class="top-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+						<ul class="top-info">
+							<a href="https://goo.gl/maps/gm5F9GDgof6HKbjE8" target="_blank" rel="noopener">
+								<li><i class="fa fa-map-marker">&nbsp;</i>
+									<p class="info-text">Lầu 3B Tòa Nhà Scetpa, 19A Cộng Hòa, Phường Bảy Hiền, Thành phố Hồ Chí Minh</p>
+								</li>
+							</a>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 top-social text-right">
+						<ul class="unstyled">
+							<li>
+								<a title="Facebook" href=https://www.facebook.com/vtltech.com.vn/ target="_blank" rel="noopener">
+									<span class="social-icon"><i class="fa fa-facebook"></i></span>
+								</a>
+								
+								<a title="Youtube" href=https://www.youtube.com/c/VTLTECHCOLTD target="_blank" rel="noopener">
+									<span class="social-icon"><i class="fa fa-youtube"></i></span>
+								</a>
+								<a title="Tiếng Việt" href="#"> 
+									<img src="img/vn.png" alt="Tiếng việt" /> 
+								</a>
+								<a title="English" href="#"> 
+									<img src="img/en.png" alt="English" class="flag" />  
+								</a>
+								<a title="Ex" href="#">
+									<img src="img/ex.png" style="height:18px"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<header id="header" class="header-one">
+  	<div class="container">
+		<div class="row">
+			<div class="logo-area clearfix">
+				<div class="logo col-xs-12 col-md-3">
+					<a href="#">
+						<img src="img/VTL_logo.svg" alt="C&#244;ng ty TNHH Kỹ Thuật Việt Thắng Lợi">
+                    </a>
+				</div><!-- logo end -->
+				
+				<div class="col-xs-12 col-md-9 header-right">
+				  	<ul class="top-info-box">
+						<li>
+							<div class="info-box">
+								<div class="info-box-content">
+									<p class="info-box-title">Điện thoại</p>
+									<p class="info-box-subtitle"><a href="tel:(028) 3811 0510">(028) 3811 0510</a></p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box">
+								<div class="info-box-content">
+									<p class="info-box-title">Email</p>
+									<p class="info-box-subtitle"><a href="mailto:info@vtltech.com.vn">info@vtltech.com.vn</a></p>
+								</div>
+							</div>
+						</li>
+						<li class="last">
+							<div class="info-box last">
+								<div class="info-box-content">
+									<p class="info-box-title">Fax</p>
+									<p class="info-box-subtitle">(028) 3811 0512</p>
+								</div>
+							</div>
+						</li>
+						<li class="header-get-a-quote">
+							<a class="btn btn-primary" href="#">Li&#234;n hệ</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="gap-40"></div>
+<div id="banner-area" class="banner-area" style="background-image:url(img/banner.png)">
+	<div class="banner-text">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="banner-heading">
+						<h1 class="banner-title">Danh Thiếp</h1>
+						<ol class="breadcrumb">
+							<li class='active'>Danh thiếp</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="gap-40"></div>
+	<div class="row">
+		<div class="preview-column col-md-6 col-sm-6 col-xs-12">
+			<div class="row">
+			<h2>Danh thiếp</h2>
+			<div class="card-frame">
+				<div class="card-scale">
+					<div class="card-front card-inner row">						
+						<div class="info-row row mrt-0">
+							<div class="info-left col-md-4 col-sm-4 col-xs-4">
+								<div id="qr-website"></div>
+							</div>
+							<div class="info-right top-info col-md-8 col-sm-8 col-xs-8">
+								<div id="preview-name">VTL TECH</div>
+								<div id="preview-title">Sales Dept.</div>
+								<div id="preview-phone">028-3811 0510</div>
+								<div id="preview-email">info@vtltech.com.vn</div>
+							</div>
+						</div>						
+						<div class="info-row row">
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<img id="card-logo-preview" src="img\VTL_logo.svg" alt="Logo" />
+							</div>
+							<div class="info-right mrb-80 col-md-8 col-sm-8 col-xs-8">
+								<div id="preview-company"><strong>VTL Tech Co., Ltd.</strong></div>
+								<div id="preview-tel">Tel: 028-3811 0510 / 11</div>
+								<div id="preview-fax">Fax: 028-3811 0512</div>
+								<div id="preview-website">https://vtltech.com.vn</div>
+								<div id="preview-address">03Brd floor, Scetpa Building, 19A Cong Hoa Street, Bay Hien Ward, Hồ Chí Minh City, Vietnam</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="gap-40"></div>
+				<div class="card-scale">
+					<div class="card-back card-inner row">
+						<div class="scan-me col-md-4 col-sm-4 col-xs-4">
+							<h4>SCAN ME</h4>
+						</div>
+						<div class="qr-vcard col-md-8 col-sm-8 col-xs-8" id="qr-vcard">
+						</div>						
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="form-column col-md-6 col-sm-6 col-xs-12">			
+			<h2 id="vcard_label">Thông tin cá nhân</h2>
+			<form action="/vn/lien-he/" enctype="multipart/form-data" method="post">    <div class="error-container"></div>
+			<div class="row"> 
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Họ tên</label>
+						<input class="form-control" id="name" type="text" value="VTL TECH">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Chức danh</label>
+						<input class="form-control" id="title" type="text" value="Sales Dept.">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Di động</label>
+						<input class="form-control" id="phone" type="tel" value="028-3811 0510">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Email</label>
+						<input class="form-control" id="email" type="email" value="info@vtltech.com.vn">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Tên công ty</label>
+						<input class="form-control" id="company" type="text" value="VTL Tech Co., Ltd.">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Tel</label>
+						<input class="form-control" id="tel" type="tel" value="028-3811 0510 / 11">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Fax</label>
+						<input class="form-control" id="fax" type="tel" value="028-3811 0512">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Website</label>
+						<input class="form-control" id="website" type="url" value="https://vtltech.com.vn">
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Địa chỉ</label>
+						<textarea class="form-control" id="address" rows="3">03Brd floor, Scetpa Building</textarea>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<button id="updatenamecard-btn" class="btn btn-primary">Cập nhật danh thiếp</button>
+				</div>
+				<div class="col-md-6">
+					<button id="savenamecard-btn" class="btn btn-primary">Lưu danh thiếp</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gap-40"></div>
+<!--Javascript-->
+	<div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+		<button class="btn btn-primary" title="Back to Top">
+			<i class="fa fa-angle-double-up"></i>
+		</button>
+	</div>		
+	<script type="text/javascript" src="scripts/peter.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.colorbox.js"></script>
+	<script type="text/javascript" src="scripts/isotope.js"></script>
+	<script type="text/javascript" src="scripts/ini.isotope.js"></script>
+	<script type="text/javascript" src="scripts/custom.js"></script>
+<footer id="footer" class="footer bg-overlay">
+	<div class="copyright">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-9">
+					<div class="copyright-info">
+						<span><a href="#">Copyright &#169; 2025 Bản quyền thuộc về C&#212;NG TY TNHH KỸ THUẬT VIỆT THẮNG LỢI – ĐKKD số: 0305557155</a></span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-3">
+					<div class="footer-menu">
+						<ul class="nav unstyled">
+							<li><a href="#"> Giới thiệu</a> </li>
+							<li><a href="#">Li&#234;n hệ</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+				<button class="btn btn-primary" title="Back to Top">
+					<i class="fa fa-angle-double-up"></i>
+				</button>
+			</div>
+
+		</div>
+	</div>
+</footer>
+</body>
+</html>
