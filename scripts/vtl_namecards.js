@@ -1,4 +1,4 @@
-const allowedNames = ["peter", "bill", "vi", "jenny", "huong"];
+const allowedNames = ["peter", "bill", "vi", "jenny", "huong", "tuan"];
 const urlParams = new URLSearchParams(window.location.search);
 const personName = urlParams.get("name");
 function toggleFormAndLabel() {
