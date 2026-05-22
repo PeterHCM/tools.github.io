@@ -185,92 +185,140 @@
 	</div>
 </div>
 <div class="gap-40"></div>
-<div class="container">
-	<div class="scan-row row">
-		<div class="scan-input col-md-6 col-sm-6 col-xs-12">
-			<h4>Nhập giá trị</h4>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Số PO:</label>
-					<input class="form-control poInput" type="text" value="PO2025" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Model:</label>
-					<input class="form-control modelInput" type="text" list="modelList" placeholder="Model" />
-					<datalist id="modelList">
-						<option value="TP48-I-NDI">
-						<option value="SD32X">
-						<option value="SD32T3">
-						<option value="SLP32D">
-						<option value="MTL7728+">
-						<option value="MTL5541">
-						<option value="MTL5532">
-						<option value="MTL5531">
-						<option value="ZB24567">
-					</datalist>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Mô tả:</label>
-					<input class="form-control descriptionInput" type="text" placeholder="Vui lòng nhập mô tả" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Serial:</label>
-					<input class="form-control serialInput" type="text" placeholder="Serial" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<button class="btn btn-primary saveBtn">LƯU</button>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<button class="btn btn-primary scanSerial">📷 SCAN SERIAL NUMBER</button>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<button class="btn btn-primary" onclick="window.open('https://docs.google.com/spreadsheets/d/1o3eLseq4V9girr3-zMv73Fi8O8HSXaevqm35ehcie-0/edit?gid=475993363', '_blank')">
-						Mở bảng tổng kết
-					</button>
-				</div>
-			</div>
-		</div>		
-		<div class="col-md-6 col-sm-6 col-xs-12">			
-			<h4>Camera</h4>		
-			<div class="gap-40"></div>
-			<div class="Scan-box">
-				<video id="video" autoplay muted playsinline></video>
-			</div>
-		</div>
-	</div>
-	<div class="history row">
-		<div class="history col-xs-12">
-			<section id="history">
-				<h4>Lịch sử quét</h4>
-				<table border="1">
-					<thead>
-						<tr>
-						<th width="5%">STT</th>
-						<th width="12%">Số PO</th>
-						<th width="12%">Model</th>
-						<th width="35%">Mô tả</th>
-						<th width="12%">Serial</th>
-						<th width="12%">Ngày</th>
-						<th width="12%">Giờ</th>
-						</tr>
-					</thead>
-					<tbody id="historyTable"></tbody>
-				</table>
-			</section>			
-		</div>
-	</div>
+<div class="container" style="padding-top:20px">
+ 
+  <!-- Hướng dẫn sử dụng -->
+  <div class="alert alert-info">
+    <h4><span class="glyphicon glyphicon-info-sign"></span> Hướng dẫn sử dụng</h4>
+    <div class="row" style="margin-top:10px">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <p><strong>Bước 1 — Nhập thông tin</strong><br/>Điền số PO, chọn model từ danh sách và nhập mô tả thiết bị.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <p><strong>Bước 2 — Nhập serial</strong><br/>Gõ trực tiếp vào ô serial, hoặc nhấn Scan để dùng camera quét mã.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <p><strong>Bước 3 — Căn chỉnh camera</strong><br/>Hướng camera vào mã vạch/QR. Đảm bảo đủ sáng để quét tự động.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <p><strong>Bước 4 — Lưu &amp; kiểm tra</strong><br/>Nhấn Lưu để ghi vào lịch sử. Mở bảng tổng kết để xem toàn bộ dữ liệu.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Form + Camera -->
+  <div class="row">
+ 
+    <!-- Form nhập liệu -->
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="panel-title">Nhập giá trị</h4></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Số PO</label>
+                <input class="form-control poInput" type="text" value="PO2025" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Model</label>
+                <input class="form-control modelInput" type="text" list="modelList" placeholder="Chọn hoặc nhập..." />
+                <datalist id="modelList">
+                  <option value="TP48-I-NDI">
+                  <option value="SD32X">
+                  <option value="SD32T3">
+                  <option value="SLP32D">
+                  <option value="MTL7728+">
+                  <option value="MTL5541">
+                  <option value="MTL5532">
+                  <option value="MTL5531">
+                  <option value="ZB24567">
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Mô tả</label>
+            <input class="form-control descriptionInput" type="text" placeholder="Nhập mô tả thiết bị..." />
+          </div>
+          <div class="form-group">
+            <label>Serial</label>
+            <input class="form-control serialInput" type="text" placeholder="Nhập hoặc quét serial" />
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <button class="btn btn-primary btn-block saveBtn">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Lưu
+              </button>
+            </div>
+            <div class="col-xs-4">
+              <button class="btn btn-success btn-block scanSerial">
+                <span class="glyphicon glyphicon-camera"></span> Scan serial
+              </button>
+            </div>
+            <div class="col-xs-4">
+              <button class="btn btn-default btn-block"
+                onclick="window.open('https://docs.google.com/spreadsheets/d/1o3eLseq4V9girr3-zMv73Fi8O8HSXaevqm35ehcie-0/edit?gid=475993363','_blank')">
+                <span class="glyphicon glyphicon-th"></span> Tổng kết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Camera -->
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="panel-title">Camera</h4></div>
+        <div class="panel-body text-center">
+          <video id="video" autoplay muted playsinline style="width:100%;display:none;"></video>
+          <div id="camPlaceholder" class="text-muted" style="padding:40px 0">
+            <span class="glyphicon glyphicon-camera" style="font-size:36px;display:block;margin-bottom:10px"></span>
+            Nhấn "Scan serial" để bật camera
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <!-- Lịch sử quét -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="panel-title">Lịch sử quét</h4></div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th style="width:5%">STT</th>
+                  <th style="width:12%">Số PO</th>
+                  <th style="width:12%">Model</th>
+                  <th style="width:35%">Mô tả</th>
+                  <th style="width:13%">Serial</th>
+                  <th style="width:12%">Ngày</th>
+                  <th style="width:11%">Giờ</th>
+                </tr>
+              </thead>
+              <tbody id="historyTable">
+                <tr>
+                  <td colspan="7" class="text-center text-muted" style="padding:30px">
+                    <span class="glyphicon glyphicon-inbox" style="font-size:24px;display:block;margin-bottom:8px"></span>
+                    Chưa có dữ liệu
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 </div>
 <div class="gap-40"></div>
 <!--Javascript-->
