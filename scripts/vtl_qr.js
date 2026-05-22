@@ -52,20 +52,22 @@ function sendToGoogleForm(po, model,description, serial, date, time) {
   });
 }
 
-function saveToTable(po, model, description, serial, date, time) {
+function saveToTable(po, model, description, serial, date, time) {  
+  if (sttCounter === 1) {
+    historyTable.innerHTML = "";
+  }
   const row = document.createElement('tr');
   row.innerHTML = `
     <td>${sttCounter++}</td>
     <td>${po}</td>
     <td>${model}</td>
-	<td>${description}</td>
+    <td>${description}</td>
     <td>${serial}</td>
     <td>${date}</td>
     <td>${time}</td>
   `;
   historyTable.appendChild(row);
 }
-
 function playBeep() {
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = ctx.createOscillator();
