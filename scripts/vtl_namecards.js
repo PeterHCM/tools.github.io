@@ -124,25 +124,11 @@ function generateVCardQR(data) {
     type: "svg",
     data: vcardData,
     image: "img/VTL_logo_square.svg",
-    imageOptions: {
-      crossOrigin: "anonymous",
-      margin: 0,
-      imageSize: 0.25,
-      hideBackgroundDots: true
-    },
-    dotsOptions: {
-      color: "#555",
-      type: "square"
-    },
-    backgroundOptions: {
-      color: "#ffffff"
-    },
-    cornersSquareOptions: {
-      type: "extra-rounded"
-    },
-    cornersDotOptions: {
-      type: "dot"
-    }
+    imageOptions: {crossOrigin: "anonymous", margin: 0, imageSize: 0.25, hideBackgroundDots: true},
+    dotsOptions: {color: "#555",type: "square"},
+    backgroundOptions: {color: "#ffffff"},
+    cornersSquareOptions: { type: "extra-rounded", color: "#e06800" },
+    cornersDotOptions: {type: "dot"}
   });
 
   const qrContainer = document.getElementById("qr-vcard");
