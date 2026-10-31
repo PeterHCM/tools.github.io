@@ -1,0 +1,336 @@
+/* ==========================================================
+   Style riêng cho các trang công cụ nội bộ VTL.
+   Màu & font lấy theo theme website công ty (style.css):
+   xanh #006361, cam #e06800, Montserrat / Open Sans.
+   ========================================================== */
+:root {
+	--vtl-teal: #006361;
+	--vtl-teal-dark: #004c4a;
+	--vtl-orange: #e06800;
+	--vtl-gray: #555;
+	--vtl-light: #f4f7f7;
+	--vtl-border: #dde5e5;
+}
+
+/* ---------- Tiêu đề trang (giống banner trang con của website) ---------- */
+.page-banner {
+	background: linear-gradient(rgba(0, 76, 74, .85), rgba(0, 76, 74, .85)), url(../img/banner.png) center / cover no-repeat;
+	padding: 45px 0 40px;
+	text-align: center;
+	color: #fff;
+}
+.page-banner h1 {
+	color: #fff;
+	margin: 0 0 8px;
+	font-size: 32px;
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+.page-banner .breadcrumb {
+	margin: 0;
+	color: rgba(255, 255, 255, .85);
+}
+.page-banner .breadcrumb a { color: #fff; }
+.page-banner .breadcrumb > li + li:before { color: rgba(255, 255, 255, .6); }
+.page-banner .breadcrumb > .active { color: var(--vtl-orange); }
+
+.section { padding: 50px 0; }
+.section-title {
+	font-size: 20px;
+	margin: 0 0 20px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--vtl-border);
+	position: relative;
+}
+.section-title:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 60px;
+	height: 2px;
+	background: var(--vtl-orange);
+}
+
+/* ---------- Khung nội dung (panel) ---------- */
+.vtl-box {
+	background: #fff;
+	border: 1px solid var(--vtl-border);
+	border-top: 3px solid var(--vtl-teal);
+	border-radius: 4px;
+	padding: 20px;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
+}
+.vtl-box .form-control {
+	height: 40px;
+	border-radius: 3px;
+	box-shadow: none;
+}
+.vtl-box textarea.form-control { height: auto; }
+.vtl-box .form-control:focus {
+	border-color: var(--vtl-teal);
+	box-shadow: 0 0 0 2px rgba(0, 99, 97, .15);
+}
+.vtl-box label {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	color: var(--vtl-teal);
+}
+.btn-dark:focus, .btn-dark:active { color: #fff; }
+.btn-block + .btn-block { margin-top: 0; }
+.btn-row { margin-top: 10px; }
+.btn-row .btn { margin-bottom: 10px; }
+
+/* ---------- Trang chủ: thẻ công cụ ---------- */
+.tool-card {
+	display: block;
+	background: #fff;
+	border: 1px solid var(--vtl-border);
+	border-radius: 4px;
+	padding: 30px 25px;
+	margin-bottom: 30px;
+	text-align: center;
+	color: var(--vtl-gray);
+	transition: 250ms;
+}
+.tool-card:hover,
+.tool-card:focus {
+	text-decoration: none;
+	border-color: var(--vtl-orange);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+	transform: translateY(-3px);
+	color: var(--vtl-gray);
+}
+.tool-card .tool-icon {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	margin: 0 auto 20px;
+	border-radius: 50%;
+	background: var(--vtl-teal);
+	color: #fff;
+	font-size: 30px;
+	transition: 250ms;
+}
+.tool-card:hover .tool-icon { background: var(--vtl-orange); }
+.tool-card h3 { font-size: 18px; margin: 0 0 10px; }
+.tool-card p { margin: 0 0 15px; }
+.tool-card .tool-more {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: var(--vtl-orange);
+}
+
+/* ---------- Danh thiếp (tỉ lệ 90 x 54 mm) ---------- */
+.card-preview { margin-bottom: 25px; }
+.card-preview .card-label {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #999;
+	margin-bottom: 8px;
+}
+.namecard {
+	container-type: inline-size;
+	position: relative;
+	width: 100%;
+	max-width: 520px;
+	aspect-ratio: 90 / 54;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	overflow: hidden;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+	font-family: 'Open Sans', Arial, sans-serif;
+	color: #333;
+}
+/* Mặt trước */
+.namecard-front {
+	display: grid;
+	grid-template-columns: 30% 1fr;
+	grid-template-rows: 1fr auto;
+	gap: 3cqw 4cqw;
+	padding: 5cqw 5cqw 0;
+}
+.namecard-front .nc-qr {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#qr-website canvas,
+#qr-website img {
+	width: 18cqw !important;
+	height: 18cqw !important;
+}
+.namecard-front .nc-person { align-self: center; }
+#preview-name {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 5.2cqw;
+	font-weight: 700;
+	color: var(--vtl-teal);
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+#preview-title {
+	font-size: 3cqw;
+	color: var(--vtl-orange);
+	font-weight: 600;
+	margin-bottom: 1.5cqw;
+}
+.namecard .nc-line {
+	font-size: 2.5cqw;
+	line-height: 1.45;
+	word-break: break-word;
+}
+.namecard .nc-line b { color: var(--vtl-teal); font-weight: 600; }
+.namecard-front .nc-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.namecard-front .nc-logo img { width: 100%; height: auto; }
+.namecard-front .nc-company { padding-bottom: 4cqw; }
+#preview-company {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3cqw;
+	font-weight: 700;
+	color: var(--vtl-teal);
+	margin-bottom: .5cqw;
+}
+.namecard-front:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1.6cqw;
+	background: linear-gradient(90deg, var(--vtl-teal) 70%, var(--vtl-orange) 70%);
+}
+/* Mặt sau */
+.namecard-back {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 5cqw;
+	background: var(--vtl-teal);
+	color: #fff;
+}
+.namecard-back .nc-scan {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+.namecard-back .nc-scan img {
+	width: 28cqw;
+	background: #fff;
+	padding: 2cqw;
+	border-radius: 1.5cqw;
+	margin-bottom: 3cqw;
+}
+.namecard-back .nc-scan h4 {
+	color: #fff;
+	margin: 0;
+	font-size: 4cqw;
+	letter-spacing: .1em;
+}
+.namecard-back .nc-scan small {
+	display: block;
+	font-size: 2.4cqw;
+	opacity: .85;
+}
+.qr-box {
+	background: #fff;
+	border: 0.6cqw solid var(--vtl-orange);
+	border-radius: 2cqw;
+	padding: 1.5cqw;
+	line-height: 0;
+}
+.qr-box > canvas,
+.qr-box > svg,
+.qr-box > img {
+	width: 36cqw;
+	height: 36cqw;
+}
+
+/* ---------- Quét mã ---------- */
+.steps { margin-bottom: 20px; }
+.step {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 15px;
+}
+.step-num {
+	flex: 0 0 34px;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 50%;
+	background: var(--vtl-orange);
+	color: #fff;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+.step p { margin: 0; font-size: 14px; line-height: 22px; }
+.step strong { color: var(--vtl-teal); }
+
+.camera-box {
+	background: var(--vtl-light);
+	border: 2px dashed var(--vtl-border);
+	border-radius: 4px;
+	min-height: 260px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+#video {
+	width: 100%;
+	max-height: 360px;
+	object-fit: cover;
+	display: none;
+}
+#camPlaceholder { color: #999; text-align: center; padding: 30px; }
+#camPlaceholder .fa { font-size: 40px; display: block; margin-bottom: 10px; color: var(--vtl-teal); }
+
+.history-table thead th {
+	background: var(--vtl-teal);
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	border-color: var(--vtl-teal-dark) !important;
+	white-space: nowrap;
+}
+.history-table td { font-size: 14px; vertical-align: middle !important; }
+.history-empty { color: #999; padding: 30px !important; text-align: center; }
+
+/* ---------- Footer gọn cho trang công cụ ---------- */
+.footer .copyright { padding: 20px 0; }
+
+@media (max-width: 767px) {
+	.page-banner { padding: 30px 0; }
+	.page-banner h1 { font-size: 22px; }
+	.section { padding: 30px 0; }
+	.namecard { margin: 0 auto; }
+}
+
+/* Top bar: tránh chồng chữ khi địa chỉ xuống dòng trên điện thoại */
+.top-bar .top-info a { color: inherit; }
+.top-bar .info-text { line-height: 20px; }
+@media (max-width: 767px) {
+	.top-bar { padding: 6px 0; font-size: 13px; }
+	.top-bar .top-info li { text-align: center; }
+	.logo-area .logo img { max-width: 160px; }
+}
+
+.step p, .tool-card p { text-align: left; }
+.btn-row .btn-default {
+	padding: 12px 10px 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 3px;
+}
